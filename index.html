@@ -11,33 +11,25 @@
     theme: {
       extend: {
         colors: {
-          brand: {
-            50: '#f0fbf6',
-            100: '#dbf5e8',
-            200: '#b8ead4',
-            300: '#86d8b8',
-            400: '#4fbd97',
-            500: '#2aa27c',
-            600: '#1c8264',
-            700: '#186852',
-            800: '#155343',
-            900: '#124438',
+          cream: '#FFFCF4',
+          beige: '#F1EAD7',
+          sand: '#CFC4A8',
+          olive: {
+            DEFAULT: '#919D71',
+            600: '#7E8A60',
+            700: '#6A754F',
           },
-          ocean: {
-            50: '#eff8ff',
-            100: '#dbeffe',
-            200: '#bfe4fe',
-            300: '#93d3fd',
-            400: '#5fb8fa',
-            500: '#3a9cf2',
-            600: '#2478d6',
-            700: '#1e60ad',
-            800: '#1e518c',
-            900: '#1d4573',
-          }
+          forest: {
+            DEFAULT: '#67754F',
+            600: '#576343',
+            700: '#475038',
+            800: '#3A412E',
+          },
+          ink: '#141010',
         },
         fontFamily: {
-          sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          serif: ['"Playfair Display"', 'serif'],
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         }
       }
     }
@@ -45,60 +37,61 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
+  body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+  h1, h2, h3, .font-heading { font-family: 'Playfair Display', serif; }
   .gradient-bg {
-    background: linear-gradient(135deg, #124438 0%, #186852 45%, #1e518c 100%);
+    background: linear-gradient(135deg, #3A412E 0%, #67754F 55%, #919D71 100%);
   }
   .card-hover {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(18, 68, 56, 0.25);
+    box-shadow: 0 20px 35px -10px rgba(20, 16, 16, 0.18);
   }
   .price-highlight {
-    box-shadow: 0 25px 50px -12px rgba(28, 130, 100, 0.35);
+    box-shadow: 0 25px 50px -12px rgba(103, 117, 79, 0.35);
   }
   html { scroll-behavior: smooth; }
 </style>
 </head>
-<body class="bg-white text-slate-800 antialiased">
+<body class="bg-cream text-ink antialiased">
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-100">
+  <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-sand/50">
     <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <span class="font-extrabold text-lg text-brand-800 tracking-tight">Alana Pucci <span class="text-ocean-600 font-medium">| Solução Financeira</span></span>
-      <a href="#precos" class="hidden sm:inline-block bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition">Ver planos</a>
+      <span class="font-heading font-bold text-lg text-forest tracking-tight">Alana Pucci <span class="text-olive-700 font-medium">| Solução Financeira</span></span>
+      <a href="#precos" class="hidden sm:inline-block bg-forest hover:bg-forest-600 text-cream text-sm font-semibold px-5 py-2.5 rounded-full transition">Ver planos</a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="gradient-bg text-white">
+  <section class="gradient-bg text-cream">
     <div class="max-w-6xl mx-auto px-5 py-16 sm:py-24 grid md:grid-cols-2 gap-10 items-center">
       <div class="text-center md:text-left">
-        <p class="inline-block bg-white/10 border border-white/20 text-brand-100 text-xs sm:text-sm font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Educação Financeira + Inteligência Artificial</p>
+        <p class="inline-block bg-cream/10 border border-cream/25 text-beige text-xs sm:text-sm font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5">Educação Financeira + Inteligência Artificial</p>
         <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">Planilha Financeira Inteligente</h1>
-        <p class="text-lg sm:text-xl text-brand-50/90 mb-8">Como usar a IA para organizar, preencher e analisar suas finanças</p>
-        <a href="#precos" class="inline-block bg-white text-brand-700 hover:bg-brand-50 font-bold px-8 py-4 rounded-full shadow-lg transition text-base sm:text-lg">Quero organizar minhas finanças</a>
+        <p class="text-lg sm:text-xl text-beige/90 mb-8">Como usar a IA para organizar, preencher e analisar suas finanças</p>
+        <a href="#precos" class="inline-block bg-cream text-forest-700 hover:bg-beige font-bold px-8 py-4 rounded-full shadow-lg transition text-base sm:text-lg">Quero organizar minhas finanças</a>
       </div>
       <div class="flex justify-center md:justify-end">
-        <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-white/10 border-4 border-white/30 flex items-center justify-center overflow-hidden">
+        <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-cream/10 border-4 border-cream/30 flex items-center justify-center overflow-hidden">
           <!-- Espaço para foto da Alana Pucci -->
-          <img src="SUA_FOTO_AQUI.jpg" alt="Alana Pucci - Consultora Financeira" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'text-white/70 text-sm text-center px-6\'>Espaço para sua foto</span>'">
+          <img src="SUA_FOTO_AQUI.jpg" alt="Alana Pucci - Consultora Financeira" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'text-cream/70 text-sm text-center px-6\'>Espaço para sua foto</span>'">
         </div>
       </div>
     </div>
   </section>
 
   <!-- DESTAQUE -->
-  <section class="bg-brand-50">
+  <section class="bg-beige">
     <div class="max-w-4xl mx-auto px-5 py-14 sm:py-20 text-center">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-800 leading-snug mb-5">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-forest-800 leading-snug mb-5">
         Organize seus gastos. Entenda seu dinheiro. <br class="hidden sm:block"> Use a IA a seu favor.
       </h2>
-      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-base sm:text-lg text-ink/70 max-w-2xl mx-auto">
         Guia prático + prompts prontos para transformar seus extratos em uma rotina financeira mais simples.
       </p>
     </div>
@@ -107,85 +100,85 @@
   <!-- O QUE ACOMPANHA -->
   <section class="max-w-6xl mx-auto px-5 py-16 sm:py-24">
     <div class="text-center mb-12">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-3">O que acompanha</h2>
-      <p class="text-slate-500 max-w-xl mx-auto">Tudo o que você precisa para colocar sua vida financeira em ordem, com o apoio da inteligência artificial.</p>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-ink mb-3">O que acompanha</h2>
+      <p class="text-ink/60 max-w-xl mx-auto">Tudo o que você precisa para colocar sua vida financeira em ordem, com o apoio da inteligência artificial.</p>
     </div>
     <div class="grid sm:grid-cols-2 gap-6">
-      <div class="card-hover bg-white border border-slate-100 rounded-2xl p-7 shadow-sm">
+      <div class="card-hover bg-cream border border-sand/60 rounded-2xl p-7 shadow-sm">
         <div class="text-4xl mb-4">📊</div>
-        <h3 class="font-bold text-lg text-brand-800 mb-2">Planilha de Controle Financeiro Pessoal</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Registre receitas, despesas, orçamento e parcelamentos, e acompanhe sua evolução financeira mês a mês.</p>
+        <h3 class="font-bold text-lg text-forest-800 mb-2">Planilha de Controle Financeiro Pessoal</h3>
+        <p class="text-ink/70 text-sm leading-relaxed">Registre receitas, despesas, orçamento e parcelamentos, e acompanhe sua evolução financeira mês a mês.</p>
       </div>
-      <div class="card-hover bg-white border border-slate-100 rounded-2xl p-7 shadow-sm">
+      <div class="card-hover bg-cream border border-sand/60 rounded-2xl p-7 shadow-sm">
         <div class="text-4xl mb-4">📕</div>
-        <h3 class="font-bold text-lg text-brand-800 mb-2">E-book/Guia Prático "Como Usar a IA para Preencher Sua Planilha Financeira"</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Passo a passo de como pegar o extrato do banco, organizar os lançamentos e preencher a planilha rapidamente.</p>
+        <h3 class="font-bold text-lg text-forest-800 mb-2">E-book/Guia Prático "Como Usar a IA para Preencher Sua Planilha Financeira"</h3>
+        <p class="text-ink/70 text-sm leading-relaxed">Passo a passo de como pegar o extrato do banco, organizar os lançamentos e preencher a planilha rapidamente.</p>
       </div>
-      <div class="card-hover bg-white border border-slate-100 rounded-2xl p-7 shadow-sm">
+      <div class="card-hover bg-cream border border-sand/60 rounded-2xl p-7 shadow-sm">
         <div class="text-4xl mb-4">🤖</div>
-        <h3 class="font-bold text-lg text-brand-800 mb-2">Biblioteca de Prompts para IA</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Prompts prontos para copiar, colar e pedir para a IA organizar, categorizar e analisar seus dados financeiros.</p>
+        <h3 class="font-bold text-lg text-forest-800 mb-2">Biblioteca de Prompts para IA</h3>
+        <p class="text-ink/70 text-sm leading-relaxed">Prompts prontos para copiar, colar e pedir para a IA organizar, categorizar e analisar seus dados financeiros.</p>
       </div>
-      <div class="card-hover bg-white border border-slate-100 rounded-2xl p-7 shadow-sm">
+      <div class="card-hover bg-cream border border-sand/60 rounded-2xl p-7 shadow-sm">
         <div class="text-4xl mb-4">🔎</div>
-        <h3 class="font-bold text-lg text-brand-800 mb-2">Guia de Análise Financeira</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Aprenda a usar a IA para descobrir padrões, identificar excessos e fazer perguntas melhores sobre o seu próprio dinheiro.</p>
+        <h3 class="font-bold text-lg text-forest-800 mb-2">Guia de Análise Financeira</h3>
+        <p class="text-ink/70 text-sm leading-relaxed">Aprenda a usar a IA para descobrir padrões, identificar excessos e fazer perguntas melhores sobre o seu próprio dinheiro.</p>
       </div>
     </div>
   </section>
 
   <!-- PREÇOS -->
-  <section id="precos" class="bg-ocean-50/60">
+  <section id="precos" class="bg-beige">
     <div class="max-w-6xl mx-auto px-5 py-16 sm:py-24">
       <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-3">Escolha o formato ideal para você</h2>
-        <p class="text-slate-500 max-w-xl mx-auto">Leve o pacote completo com desconto ou escolha apenas o item avulso que faz sentido para o seu momento.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-ink mb-3">Escolha o formato ideal para você</h2>
+        <p class="text-ink/60 max-w-xl mx-auto">Leve o pacote completo com desconto ou escolha apenas o item avulso que faz sentido para o seu momento.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 items-stretch">
 
         <!-- Pacote completo -->
-        <div class="price-highlight relative flex flex-col bg-white rounded-2xl border-2 border-brand-500 p-8 order-first md:order-none md:-translate-y-3">
-          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full">Mais completo</span>
-          <h3 class="text-xl font-bold text-brand-800 mt-3 mb-1">Planilha Financeira Inteligente</h3>
-          <p class="text-sm text-slate-500 mb-5">Pacote completo com os 4 itens</p>
-          <p class="text-4xl font-extrabold text-brand-700 mb-1">R$ 19,90</p>
-          <p class="text-xs text-slate-400 mb-6">pagamento único</p>
-          <ul class="text-sm text-slate-600 space-y-2 mb-8 flex-1">
+        <div class="price-highlight relative flex flex-col bg-cream rounded-2xl border-2 border-forest p-8 order-first md:order-none md:-translate-y-3">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-forest text-cream text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full">Mais completo</span>
+          <h3 class="text-xl font-bold text-forest-800 mt-3 mb-1">Planilha Financeira Inteligente</h3>
+          <p class="text-sm text-ink/60 mb-5">Pacote completo com os 4 itens</p>
+          <p class="text-4xl font-extrabold text-forest mb-1">R$ 19,90</p>
+          <p class="text-xs text-ink/50 mb-6">pagamento único</p>
+          <ul class="text-sm text-ink/70 space-y-2 mb-8 flex-1">
             <li class="flex gap-2"><span>📊</span> Planilha de Controle Financeiro Pessoal</li>
             <li class="flex gap-2"><span>📕</span> E-book "Como Usar a IA para Preencher Sua Planilha"</li>
             <li class="flex gap-2"><span>🤖</span> Biblioteca de Prompts para IA</li>
             <li class="flex gap-2"><span>🔎</span> Guia de Análise Financeira</li>
           </ul>
-          <a href="LINK_KIWIFY_PLANILHA" class="text-center bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-full transition">Quero a Planilha Completa</a>
+          <a href="LINK_KIWIFY_PLANILHA" class="text-center bg-forest hover:bg-forest-600 text-cream font-bold py-3.5 rounded-full transition">Quero a Planilha Completa</a>
         </div>
 
         <!-- E-book avulso -->
-        <div class="flex flex-col bg-white rounded-2xl border border-slate-200 p-8">
-          <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">E-book: Como Usar a IA para Preencher Sua Planilha</h3>
-          <p class="text-sm text-slate-500 mb-5">Item avulso</p>
-          <p class="text-4xl font-extrabold text-slate-800 mb-1">R$ 39,90</p>
-          <p class="text-xs text-slate-400 mb-6">pagamento único</p>
-          <ul class="text-sm text-slate-600 space-y-2 mb-8 flex-1">
+        <div class="flex flex-col bg-cream rounded-2xl border border-sand p-8">
+          <h3 class="text-xl font-bold text-ink mt-3 mb-1">E-book: Como Usar a IA para Preencher Sua Planilha</h3>
+          <p class="text-sm text-ink/60 mb-5">Item avulso</p>
+          <p class="text-4xl font-extrabold text-ink mb-1">R$ 39,90</p>
+          <p class="text-xs text-ink/50 mb-6">pagamento único</p>
+          <ul class="text-sm text-ink/70 space-y-2 mb-8 flex-1">
             <li class="flex gap-2"><span>📕</span> Guia prático passo a passo</li>
             <li class="flex gap-2"><span>✅</span> Como organizar extratos e lançamentos</li>
             <li class="flex gap-2"><span>✅</span> Ideal para quem já tem a planilha</li>
           </ul>
-          <a href="LINK_KIWIFY_EBOOK" class="text-center bg-ocean-600 hover:bg-ocean-700 text-white font-bold py-3.5 rounded-full transition">Quero o E-book</a>
+          <a href="LINK_KIWIFY_EBOOK" class="text-center bg-olive hover:bg-olive-600 text-cream font-bold py-3.5 rounded-full transition">Quero o E-book</a>
         </div>
 
         <!-- Diagnóstico -->
-        <div class="flex flex-col bg-white rounded-2xl border border-slate-200 p-8">
-          <h3 class="text-xl font-bold text-slate-800 mt-3 mb-1">Diagnóstico Financeiro Personalizado</h3>
-          <p class="text-sm text-slate-500 mb-5">Análise individual com Alana Pucci</p>
-          <p class="text-4xl font-extrabold text-slate-800 mb-1">R$ 98,00</p>
-          <p class="text-xs text-slate-400 mb-6">pagamento único</p>
-          <ul class="text-sm text-slate-600 space-y-2 mb-8 flex-1">
+        <div class="flex flex-col bg-cream rounded-2xl border border-sand p-8">
+          <h3 class="text-xl font-bold text-ink mt-3 mb-1">Diagnóstico Financeiro Personalizado</h3>
+          <p class="text-sm text-ink/60 mb-5">Análise individual com Alana Pucci</p>
+          <p class="text-4xl font-extrabold text-ink mb-1">R$ 98,00</p>
+          <p class="text-xs text-ink/50 mb-6">pagamento único</p>
+          <ul class="text-sm text-ink/70 space-y-2 mb-8 flex-1">
             <li class="flex gap-2"><span>🎯</span> Avaliação personalizada da sua situação</li>
             <li class="flex gap-2"><span>📋</span> Recomendações sob medida</li>
             <li class="flex gap-2"><span>💬</span> Orientação de consultora especializada</li>
           </ul>
-          <a href="LINK_KIWIFY_DIAGNOSTICO" class="text-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-3.5 rounded-full transition">Quero meu Diagnóstico</a>
+          <a href="LINK_KIWIFY_DIAGNOSTICO" class="text-center bg-ink hover:bg-ink/85 text-cream font-bold py-3.5 rounded-full transition">Quero meu Diagnóstico</a>
         </div>
 
       </div>
@@ -196,24 +189,24 @@
   <section class="max-w-5xl mx-auto px-5 py-16 sm:py-24">
     <div class="grid md:grid-cols-3 gap-10 items-center">
       <div class="md:col-span-1 flex justify-center">
-        <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-brand-50 border-4 border-brand-100 flex items-center justify-center overflow-hidden">
+        <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-beige border-4 border-sand flex items-center justify-center overflow-hidden">
           <!-- Espaço para foto da Alana Pucci -->
-          <img src="SUA_FOTO_SOBRE_AQUI.jpg" alt="Alana Pucci" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'text-brand-400 text-sm text-center px-6\'>Espaço para sua foto</span>'">
+          <img src="SUA_FOTO_SOBRE_AQUI.jpg" alt="Alana Pucci" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'text-forest/60 text-sm text-center px-6\'>Espaço para sua foto</span>'">
         </div>
       </div>
       <div class="md:col-span-2 text-center md:text-left">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-4">Sobre Alana Pucci</h2>
-        <p class="text-slate-600 leading-relaxed mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-ink mb-4">Sobre Alana Pucci</h2>
+        <p class="text-ink/70 leading-relaxed mb-4">
           Sou consultora financeira com MBA em Planejamento Financeiro Pessoal e Familiar, dedicada a ajudar pessoas
           a organizarem sua vida financeira de forma simples, prática e sem julgamentos.
         </p>
-        <p class="text-slate-600 leading-relaxed mb-4">
+        <p class="text-ink/70 leading-relaxed mb-4">
           Ao longo da minha trajetória, percebi que o maior obstáculo das pessoas não é falta de informação, e sim
           falta de um método claro para colocar as finanças em prática no dia a dia. Foi por isso que uni meu
           conhecimento em planejamento financeiro com o uso inteligente da Inteligência Artificial, criando
           ferramentas acessíveis que qualquer pessoa pode aplicar, mesmo sem experiência com planilhas ou tecnologia.
         </p>
-        <p class="text-slate-600 leading-relaxed">
+        <p class="text-ink/70 leading-relaxed">
           Hoje, meu propósito é simplificar a educação financeira e mostrar que organizar o dinheiro pode (e deve)
           ser um processo leve, claro e transformador.
         </p>
@@ -222,45 +215,45 @@
   </section>
 
   <!-- PROVA SOCIAL / DEPOIMENTOS -->
-  <section class="bg-brand-50">
+  <section class="bg-beige">
     <div class="max-w-6xl mx-auto px-5 py-16 sm:py-24">
       <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-3">Quem já organizou suas finanças</h2>
-        <p class="text-slate-500 max-w-xl mx-auto">Depoimentos de pessoas que colocaram a mão na massa e transformaram sua relação com o dinheiro.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-ink mb-3">Quem já organizou suas finanças</h2>
+        <p class="text-ink/60 max-w-xl mx-auto">Depoimentos de pessoas que colocaram a mão na massa e transformaram sua relação com o dinheiro.</p>
       </div>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+        <div class="bg-cream rounded-2xl p-6 shadow-sm border border-sand/60">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold">NOME</div>
+            <div class="w-12 h-12 rounded-full bg-beige flex items-center justify-center text-forest font-bold">NOME</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Nome do Cliente</p>
-              <p class="text-xs text-slate-400">Cliente</p>
+              <p class="font-semibold text-ink text-sm">Nome do Cliente</p>
+              <p class="text-xs text-ink/50">Cliente</p>
             </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">"[Espaço para depoimento — substitua por um relato real de cliente sobre os resultados obtidos.]"</p>
+          <p class="text-sm text-ink/70 leading-relaxed">"[Espaço para depoimento — substitua por um relato real de cliente sobre os resultados obtidos.]"</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+        <div class="bg-cream rounded-2xl p-6 shadow-sm border border-sand/60">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-full bg-ocean-100 flex items-center justify-center text-ocean-600 font-bold">NOME</div>
+            <div class="w-12 h-12 rounded-full bg-sand/40 flex items-center justify-center text-olive-700 font-bold">NOME</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Nome do Cliente</p>
-              <p class="text-xs text-slate-400">Cliente</p>
+              <p class="font-semibold text-ink text-sm">Nome do Cliente</p>
+              <p class="text-xs text-ink/50">Cliente</p>
             </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">"[Espaço para depoimento — substitua por um relato real de cliente sobre os resultados obtidos.]"</p>
+          <p class="text-sm text-ink/70 leading-relaxed">"[Espaço para depoimento — substitua por um relato real de cliente sobre os resultados obtidos.]"</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+        <div class="bg-cream rounded-2xl p-6 shadow-sm border border-sand/60">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold">NOME</div>
+            <div class="w-12 h-12 rounded-full bg-beige flex items-center justify-center text-forest font-bold">NOME</div>
             <div>
-              <p class="font-semibold text-slate-800 text-sm">Nome do Cliente</p>
-              <p class="text-xs text-slate-400">Cliente</p>
+              <p class="font-semibold text-ink text-sm">Nome do Cliente</p>
+              <p class="text-xs text-ink/50">Cliente</p>
             </div>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">"[Espaço para depoimento — substitua por um relato real de cliente sobre os resultados obtidos.]"</p>
+          <p class="text-sm text-ink/70 leading-relaxed">"[Espaço para depoimento — substitua por um relato real de cliente sobre os resultados obtidos.]"</p>
         </div>
 
       </div>
@@ -269,18 +262,18 @@
 
   <!-- CTA FINAL -->
   <section class="gradient-bg">
-    <div class="max-w-3xl mx-auto px-5 py-16 sm:py-20 text-center text-white">
+    <div class="max-w-3xl mx-auto px-5 py-16 sm:py-20 text-center text-cream">
       <h2 class="text-2xl sm:text-3xl font-extrabold mb-4">Pronto para organizar suas finanças com a ajuda da IA?</h2>
-      <p class="text-brand-50/90 mb-8">Comece hoje mesmo com a Planilha Financeira Inteligente.</p>
-      <a href="#precos" class="inline-block bg-white text-brand-700 hover:bg-brand-50 font-bold px-8 py-4 rounded-full shadow-lg transition">Quero organizar minhas finanças</a>
+      <p class="text-beige/90 mb-8">Comece hoje mesmo com a Planilha Financeira Inteligente.</p>
+      <a href="#precos" class="inline-block bg-cream text-forest-700 hover:bg-beige font-bold px-8 py-4 rounded-full shadow-lg transition">Quero organizar minhas finanças</a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-300">
+  <footer class="bg-ink text-beige/80">
     <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
       <p>&copy; <span id="year"></span> Alana Pucci — Solução Financeira. Todos os direitos reservados.</p>
-      <a href="https://instagram.com/planejar.invest" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brand-300 transition font-semibold">
+      <a href="https://instagram.com/planejar.invest" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-olive transition font-semibold">
         <span>📷</span> @planejar.invest
       </a>
     </div>
