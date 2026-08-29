@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Rotina do Bebê</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>🌙 Rotina do Bebê</h1>
+  <div id="day-badge" class="day-badge">—</div>
+</header>
+
+<main id="view-hoje" class="view">
+
+  <section id="alerts" class="alerts"></section>
+
+  <section class="card quick-log">
+    <h2>Registrar agora</h2>
+    <div class="quick-buttons">
+      <button class="qbtn feed-breast" data-action="feed-peito">
+        <span class="qicon">🤱</span><span>Peito</span>
+      </button>
+      <button class="qbtn feed-bottle" data-action="feed-mamadeira">
+        <span class="qicon">🍼</span><span>Mamadeira</span>
+      </button>
+      <button class="qbtn bath" data-action="bath">
+        <span class="qicon">🛁</span><span>Banho</span>
+      </button>
+      <button id="sleep-toggle" class="qbtn sleep" data-action="sleep">
+        <span class="qicon">😴</span><span id="sleep-label">Início soneca</span>
+      </button>
+    </div>
+    <div id="sleep-status" class="sleep-status hidden"></div>
+  </section>
+
+  <section class="card">
+    <h2>Meta x Real de hoje</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr><th>Marco</th><th>Alvo</th><th>Real</th><th>Diferença</th></tr>
+      </thead>
+      <tbody id="comparison-body"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Agenda de trabalho hoje</h2>
+    <div id="work-list" class="work-list"></div>
+    <form id="work-form" class="work-form">
+      <input type="text" id="work-title" placeholder="Compromisso (ex: reunião)" maxlength="60">
+      <div class="work-times">
+        <input type="time" id="work-start" required>
+        <span>até</span>
+        <input type="time" id="work-end" required>
+      </div>
+      <button type="submit">Adicionar</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Linha do tempo de hoje</h2>
+    <ul id="timeline" class="timeline"></ul>
+  </section>
+
+</main>
+
+<main id="view-semana" class="view hidden">
+  <section class="card streak-card">
+    <div class="streak-number" id="streak-number">0</div>
+    <div class="streak-label">dias seguidos dentro da margem de 15 min</div>
+  </section>
+  <section class="card">
+    <h2>Últimos 7 dias</h2>
+    <div id="week-grid" class="week-grid"></div>
+  </section>
+</main>
+
+<main id="view-config" class="view hidden">
+  <section class="card">
+    <h2>Cronograma de transição</h2>
+    <p class="muted">Defina a data de início do dia 1 do cronograma de 10 dias. Os alvos diários são calculados automaticamente a partir dela.</p>
+    <label for="start-date">Início do dia 1</label>
+    <input type="date" id="start-date">
+    <button id="save-settings">Salvar</button>
+    <p id="settings-saved" class="muted hidden">Salvo ✓</p>
+  </section>
+  <section class="card">
+    <h2>Referência do cronograma</h2>
+    <table class="ref-table">
+      <thead><tr><th>Dias</th><th>Limite soneca tarde</th><th>Início rotina noturna</th><th>Meta de dormir</th></tr></thead>
+      <tbody>
+        <tr><td>1–2</td><td>19:30</td><td>19:00</td><td>~23:00</td></tr>
+        <tr><td>3–4</td><td>19:00</td><td>18:30</td><td>~22:00</td></tr>
+        <tr><td>5–6</td><td>18:30</td><td>18:00</td><td>~21:00</td></tr>
+        <tr><td>7–8</td><td>18:00</td><td>17:30</td><td>~20:30</td></tr>
+        <tr><td>9–10</td><td>18:00</td><td>17:30</td><td>~20:00</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Acordar de vez: sempre 08:00. A partir do dia 11, mantém-se o alvo dos dias 9–10.</p>
+  </section>
+</main>
+
+<nav class="tabbar">
+  <button class="tab active" data-view="hoje"><span>📅</span>Hoje</button>
+  <button class="tab" data-view="semana"><span>📊</span>Semana</button>
+  <button class="tab" data-view="config"><span>⚙️</span>Config</button>
+</nav>
+
+<script src="/app.js"></script>
+</body>
+</html>
