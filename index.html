@@ -55,6 +55,20 @@
     box-shadow: 0 25px 50px -12px rgba(103, 117, 79, 0.35);
   }
   html { scroll-behavior: smooth; }
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(20, 16, 16, 0.45);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .tab-btn:hover:not(.tab-active) { color: #141010; }
+  .tab-btn.tab-active {
+    background: #FFFCF4;
+    color: #67754F;
+    box-shadow: 0 -2px 6px rgba(20, 16, 16, 0.05);
+  }
 </style>
 </head>
 <body class="bg-cream text-ink antialiased">
@@ -123,6 +137,173 @@
         <div class="text-4xl mb-4">🔎</div>
         <h3 class="font-bold text-lg text-forest-800 mb-2">Guia de Análise Financeira</h3>
         <p class="text-ink/70 text-sm leading-relaxed">Aprenda a usar a IA para descobrir padrões, identificar excessos e fazer perguntas melhores sobre o seu próprio dinheiro.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÉVIA DA PLANILHA -->
+  <section class="bg-beige">
+    <div class="max-w-5xl mx-auto px-5 py-16 sm:py-24">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-ink mb-3">Veja como a planilha te ajuda</h2>
+        <p class="text-ink/60 max-w-xl mx-auto">Um vislumbre real de como suas finanças ficam organizadas — você só preenche, o resto é automático.</p>
+      </div>
+
+      <!-- Mockup da planilha -->
+      <div class="bg-cream rounded-2xl border border-sand shadow-lg overflow-hidden">
+        <div class="flex items-center gap-2 bg-beige px-4 py-3 border-b border-sand">
+          <span class="w-2.5 h-2.5 rounded-full bg-sand"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-sand"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-sand"></span>
+          <span class="ml-3 text-xs text-ink/50 font-medium">Planilha de Controle Financeiro Pessoal</span>
+        </div>
+
+        <div class="p-5 sm:p-8">
+
+          <!-- Painel: Resumo Mensal -->
+          <div id="panel-resumo" class="tab-panel">
+            <p class="text-xs font-semibold uppercase tracking-wide text-olive-700 mb-4">Resumo Mensal · 08/2026</p>
+            <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
+              <div class="bg-beige rounded-xl p-3 sm:p-4 text-center border border-sand/60">
+                <p class="text-[10px] sm:text-xs text-ink/50 mb-1">Entradas</p>
+                <p class="text-sm sm:text-lg font-bold text-forest">R$ 4.200,00</p>
+              </div>
+              <div class="bg-beige rounded-xl p-3 sm:p-4 text-center border border-sand/60">
+                <p class="text-[10px] sm:text-xs text-ink/50 mb-1">Saídas</p>
+                <p class="text-sm sm:text-lg font-bold text-ink">R$ 2.850,00</p>
+              </div>
+              <div class="bg-beige rounded-xl p-3 sm:p-4 text-center border border-sand/60">
+                <p class="text-[10px] sm:text-xs text-ink/50 mb-1">Saldo</p>
+                <p class="text-sm sm:text-lg font-bold text-forest">R$ 1.350,00</p>
+              </div>
+            </div>
+            <p class="text-xs font-semibold text-ink/60 mb-2">Orçado x Realizado por categoria</p>
+            <div class="space-y-2.5">
+              <div>
+                <div class="flex justify-between text-xs text-ink/70 mb-1"><span>Moradia</span><span>R$ 1.200 / R$ 1.200</span></div>
+                <div class="h-2 rounded-full bg-sand/40"><div class="h-2 rounded-full bg-forest" style="width:100%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-ink/70 mb-1"><span>Alimentação</span><span>R$ 540 / R$ 600</span></div>
+                <div class="h-2 rounded-full bg-sand/40"><div class="h-2 rounded-full bg-forest" style="width:90%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-ink/70 mb-1"><span>Lazer</span><span>R$ 380 / R$ 300</span></div>
+                <div class="h-2 rounded-full bg-sand/40"><div class="h-2 rounded-full bg-olive-700" style="width:100%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel: Lançamentos -->
+          <div id="panel-lancamentos" class="tab-panel hidden">
+            <p class="text-xs font-semibold uppercase tracking-wide text-olive-700 mb-4">Lançamentos</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs sm:text-sm text-left border-collapse min-w-[480px]">
+                <thead>
+                  <tr class="text-ink/50 border-b border-sand">
+                    <th class="py-2 pr-4 font-semibold">Data</th>
+                    <th class="py-2 pr-4 font-semibold">Categoria</th>
+                    <th class="py-2 pr-4 font-semibold">Descrição</th>
+                    <th class="py-2 pr-4 font-semibold">Tipo</th>
+                    <th class="py-2 font-semibold">Valor</th>
+                  </tr>
+                </thead>
+                <tbody class="text-ink/80">
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">05/08/2026</td><td class="py-2 pr-4">Salário</td><td class="py-2 pr-4">Pagamento mensal</td><td class="py-2 pr-4 text-forest font-medium">Entrada</td><td class="py-2 font-medium">R$ 4.200,00</td>
+                  </tr>
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">07/08/2026</td><td class="py-2 pr-4">Supermercado</td><td class="py-2 pr-4">Compras da semana</td><td class="py-2 pr-4">Saída</td><td class="py-2 font-medium">R$ 320,50</td>
+                  </tr>
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">10/08/2026</td><td class="py-2 pr-4">Transporte</td><td class="py-2 pr-4">Combustível</td><td class="py-2 pr-4">Saída</td><td class="py-2 font-medium">R$ 180,00</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 pr-4">15/08/2026</td><td class="py-2 pr-4">Lazer</td><td class="py-2 pr-4">Cinema</td><td class="py-2 pr-4">Saída</td><td class="py-2 font-medium">R$ 65,00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Painel: Orçamento -->
+          <div id="panel-orcamento" class="tab-panel hidden">
+            <p class="text-xs font-semibold uppercase tracking-wide text-olive-700 mb-4">Orçamento por Categoria · 08/2026</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs sm:text-sm text-left border-collapse min-w-[480px]">
+                <thead>
+                  <tr class="text-ink/50 border-b border-sand">
+                    <th class="py-2 pr-4 font-semibold">Categoria</th>
+                    <th class="py-2 pr-4 font-semibold">Orçado</th>
+                    <th class="py-2 pr-4 font-semibold">Realizado</th>
+                    <th class="py-2 font-semibold">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="text-ink/80">
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">Moradia</td><td class="py-2 pr-4">R$ 1.200,00</td><td class="py-2 pr-4">R$ 1.200,00</td><td class="py-2 text-forest font-medium">✓ No prazo</td>
+                  </tr>
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">Alimentação</td><td class="py-2 pr-4">R$ 600,00</td><td class="py-2 pr-4">R$ 540,00</td><td class="py-2 text-forest font-medium">✓ No prazo</td>
+                  </tr>
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">Lazer</td><td class="py-2 pr-4">R$ 300,00</td><td class="py-2 pr-4">R$ 380,00</td><td class="py-2 text-olive-700 font-medium">⚠ Estourou</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 pr-4">Transporte</td><td class="py-2 pr-4">R$ 250,00</td><td class="py-2 pr-4">R$ 210,00</td><td class="py-2 text-forest font-medium">✓ No prazo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Painel: Parcelamentos -->
+          <div id="panel-parcelas" class="tab-panel hidden">
+            <p class="text-xs font-semibold uppercase tracking-wide text-olive-700 mb-4">Parcelamentos</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs sm:text-sm text-left border-collapse min-w-[480px]">
+                <thead>
+                  <tr class="text-ink/50 border-b border-sand">
+                    <th class="py-2 pr-4 font-semibold">Item</th>
+                    <th class="py-2 pr-4 font-semibold">Valor Total</th>
+                    <th class="py-2 pr-4 font-semibold">Parcela</th>
+                    <th class="py-2 pr-4 font-semibold">Atual</th>
+                    <th class="py-2 font-semibold">Pago?</th>
+                  </tr>
+                </thead>
+                <tbody class="text-ink/80">
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">Notebook novo</td><td class="py-2 pr-4">R$ 3.000,00</td><td class="py-2 pr-4">R$ 300,00</td><td class="py-2 pr-4">3/10</td><td class="py-2 text-forest font-medium">Sim</td>
+                  </tr>
+                  <tr class="border-b border-sand/50">
+                    <td class="py-2 pr-4">Celular</td><td class="py-2 pr-4">R$ 2.400,00</td><td class="py-2 pr-4">R$ 200,00</td><td class="py-2 pr-4">5/12</td><td class="py-2 text-forest font-medium">Sim</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 pr-4">Sofá</td><td class="py-2 pr-4">R$ 1.800,00</td><td class="py-2 pr-4">R$ 300,00</td><td class="py-2 pr-4">2/6</td><td class="py-2 text-ink/50 font-medium">Não</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Abas ao estilo planilha -->
+        <div class="flex flex-wrap gap-1 bg-beige/60 border-t border-sand px-3 py-2">
+          <button data-tab="resumo" class="tab-btn tab-active">Resumo Mensal</button>
+          <button data-tab="lancamentos" class="tab-btn">Lançamentos</button>
+          <button data-tab="orcamento" class="tab-btn">Orçamento</button>
+          <button data-tab="parcelas" class="tab-btn">Parcelamentos</button>
+        </div>
+      </div>
+      <p class="text-xs text-ink/40 text-center mt-3">*Dados ilustrativos, apenas para demonstração.</p>
+
+      <!-- Destaques -->
+      <div class="grid sm:grid-cols-2 gap-4 mt-10 text-sm text-ink/70">
+        <div class="flex gap-3 items-start"><span class="text-forest text-lg leading-none">✓</span> Menus suspensos prontos — você só seleciona a categoria e o tipo</div>
+        <div class="flex gap-3 items-start"><span class="text-forest text-lg leading-none">✓</span> Fórmulas automáticas — Realizado, Diferença e Status se calculam sozinhos</div>
+        <div class="flex gap-3 items-start"><span class="text-forest text-lg leading-none">✓</span> Resumo Mensal com cards e gráfico Orçado x Realizado atualizados na hora</div>
+        <div class="flex gap-3 items-start"><span class="text-forest text-lg leading-none">✓</span> Controle de parcelamentos sem perder o fio de quanto ainda falta pagar</div>
       </div>
     </div>
   </section>
@@ -281,6 +462,17 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('tab-active'));
+        tabPanels.forEach(p => p.classList.add('hidden'));
+        btn.classList.add('tab-active');
+        document.getElementById('panel-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
   </script>
 
 </body>
