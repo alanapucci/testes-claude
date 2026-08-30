@@ -25,6 +25,7 @@ def init_db():
         """
         CREATE TABLE IF NOT EXISTS events (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            person TEXT NOT NULL DEFAULT 'bebe',  -- 'bebe' | 'rapha'
             type TEXT NOT NULL,        -- 'feed' | 'bath' | 'sleep'
             subtype TEXT,              -- 'peito' | 'mamadeira' (somente feed)
             start_ts TEXT NOT NULL,    -- ISO 8601 local, ex: 2026-08-29T14:05:00
@@ -42,6 +43,16 @@ def init_db():
             key TEXT PRIMARY KEY,
             value TEXT
         );
+        CREATE TABLE IF NOT EXISTS daily_checks (
+            date TEXT NOT NULL,        -- YYYY-MM-DD
+            key TEXT NOT NULL,         -- 'house:<task_key>' | 'children_bedtime' | 'mom_self_care'
+            done_at TEXT NOT NULL,
+            PRIMARY KEY (date, key)
+        );
         """
     )
+    # migracao: bancos criados antes do perfil do Rapha nao tem a coluna 'person'
+    cols = [r["name"] for r in conn.execute("PRAGMA table_info(events)").fetchall()]
+    if "person" not in cols:
+        conn.execute("ALTER TABLE events ADD COLUMN person TEXT NOT NULL DEFAULT 'bebe'")
     conn.commit()

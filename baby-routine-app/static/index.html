@@ -3,46 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Rotina do Bebê</title>
+<title>Rotina da Família</title>
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <h1>🌙 Rotina do Bebê</h1>
+  <h1 id="page-title">🏠 Rotina da Família</h1>
   <div id="day-badge" class="day-badge">—</div>
 </header>
 
-<main id="view-hoje" class="view">
+<!-- ================= GERAL (visão geral do dia) ================= -->
+<main id="view-geral" class="view">
 
-  <section id="alerts" class="alerts"></section>
+  <section id="geral-alerts" class="alerts"></section>
 
-  <section class="card quick-log">
-    <h2>Registrar agora</h2>
-    <div class="quick-buttons">
-      <button class="qbtn feed-breast" data-action="feed-peito">
-        <span class="qicon">🤱</span><span>Peito</span>
-      </button>
-      <button class="qbtn feed-bottle" data-action="feed-mamadeira">
-        <span class="qicon">🍼</span><span>Mamadeira</span>
-      </button>
-      <button class="qbtn bath" data-action="bath">
-        <span class="qicon">🛁</span><span>Banho</span>
-      </button>
-      <button id="sleep-toggle" class="qbtn sleep" data-action="sleep">
-        <span class="qicon">😴</span><span id="sleep-label">Início soneca</span>
-      </button>
+  <section class="card streak-card">
+    <div class="streak-number" id="streak-number-geral">0</div>
+    <div class="streak-label">dias seguidos com tudo dentro da meta</div>
+  </section>
+
+  <section class="card overview-grid">
+    <div class="overview-item" id="ov-bebe">
+      <span class="ov-icon">🍼</span>
+      <div class="ov-text">
+        <div class="ov-title">Bebê</div>
+        <div class="ov-sub" id="ov-bebe-sub">—</div>
+      </div>
+      <span class="ov-status" id="ov-bebe-status">—</span>
     </div>
-    <div id="sleep-status" class="sleep-status hidden"></div>
+    <div class="overview-item" id="ov-rapha">
+      <span class="ov-icon">🧒</span>
+      <div class="ov-text">
+        <div class="ov-title">Rapha</div>
+        <div class="ov-sub" id="ov-rapha-sub">—</div>
+      </div>
+      <span class="ov-status" id="ov-rapha-status">—</span>
+    </div>
+    <div class="overview-item">
+      <span class="ov-icon">🧹</span>
+      <div class="ov-text">
+        <div class="ov-title">Casa</div>
+        <div class="progress-bar"><div class="progress-fill" id="ov-house-fill"></div></div>
+      </div>
+      <span class="ov-status" id="ov-house-status">0%</span>
+    </div>
   </section>
 
   <section class="card">
-    <h2>Meta x Real de hoje</h2>
+    <h2>Todas as crianças na cama até 21h</h2>
+    <button id="bedtime-toggle" class="flag-toggle">Marcar como feito</button>
+    <p id="bedtime-info" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>Rotina de cuidados pessoais (mãe)</h2>
+    <button id="selfcare-toggle" class="flag-toggle">Marcar como feito</button>
+    <p id="selfcare-info" class="muted"></p>
+  </section>
+
+</main>
+
+<!-- ================= BEBÊ ================= -->
+<main id="view-bebe" class="view hidden">
+
+  <section id="bebe-alerts" class="alerts"></section>
+
+  <section class="card quick-log">
+    <h2>Registrar agora — Bebê</h2>
+    <div class="quick-buttons">
+      <button class="qbtn feed-breast" data-person="bebe" data-action="feed-peito">
+        <span class="qicon">🤱</span><span>Peito</span>
+      </button>
+      <button class="qbtn feed-bottle" data-person="bebe" data-action="feed-mamadeira">
+        <span class="qicon">🍼</span><span>Mamadeira</span>
+      </button>
+      <button class="qbtn bath" data-person="bebe" data-action="bath">
+        <span class="qicon">🛁</span><span>Banho</span>
+      </button>
+      <button id="sleep-toggle-bebe" class="qbtn sleep" data-person="bebe" data-action="sleep">
+        <span class="qicon">😴</span><span id="sleep-label-bebe">Início soneca</span>
+      </button>
+    </div>
+    <div id="sleep-status-bebe" class="sleep-status hidden"></div>
+  </section>
+
+  <section class="card">
+    <h2>Meta x Real de hoje — Bebê</h2>
     <table class="comparison-table">
-      <thead>
-        <tr><th>Marco</th><th>Alvo</th><th>Real</th><th>Diferença</th></tr>
-      </thead>
-      <tbody id="comparison-body"></tbody>
+      <thead><tr><th>Marco</th><th>Alvo</th><th>Real</th><th>Diferença</th></tr></thead>
+      <tbody id="comparison-body-bebe"></tbody>
     </table>
   </section>
 
@@ -61,16 +111,62 @@
   </section>
 
   <section class="card">
-    <h2>Linha do tempo de hoje</h2>
-    <ul id="timeline" class="timeline"></ul>
+    <h2>Linha do tempo de hoje — Bebê</h2>
+    <ul id="timeline-bebe" class="timeline"></ul>
   </section>
 
 </main>
 
+<!-- ================= RAPHA ================= -->
+<main id="view-rapha" class="view hidden">
+
+  <section id="rapha-alerts" class="alerts"></section>
+
+  <section class="card quick-log">
+    <h2>Registrar agora — Rapha</h2>
+    <div class="quick-buttons quick-buttons-2">
+      <button class="qbtn bath" data-person="rapha" data-action="bath">
+        <span class="qicon">🛁</span><span>Banho</span>
+      </button>
+      <button id="sleep-toggle-rapha" class="qbtn sleep" data-person="rapha" data-action="sleep">
+        <span class="qicon">😴</span><span id="sleep-label-rapha">Início soneca</span>
+      </button>
+    </div>
+    <div id="sleep-status-rapha" class="sleep-status hidden"></div>
+  </section>
+
+  <section class="card">
+    <h2>Meta x Real de hoje — Rapha</h2>
+    <table class="comparison-table">
+      <thead><tr><th>Marco</th><th>Alvo</th><th>Real</th><th>Diferença</th></tr></thead>
+      <tbody id="comparison-body-rapha"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Linha do tempo de hoje — Rapha</h2>
+    <ul id="timeline-rapha" class="timeline"></ul>
+  </section>
+
+</main>
+
+<!-- ================= CASA ================= -->
+<main id="view-casa" class="view hidden">
+
+  <section class="card">
+    <h2>Checklist da casa hoje</h2>
+    <div class="progress-bar big"><div class="progress-fill" id="house-fill"></div></div>
+    <p id="house-summary" class="muted"></p>
+    <ul id="house-list" class="house-list"></ul>
+  </section>
+
+</main>
+
+<!-- ================= SEMANA ================= -->
 <main id="view-semana" class="view hidden">
   <section class="card streak-card">
     <div class="streak-number" id="streak-number">0</div>
-    <div class="streak-label">dias seguidos dentro da margem de 15 min</div>
+    <div class="streak-label">dias seguidos com tudo dentro da meta<br>(bebê + Rapha + casa + horário de dormir + rotina pessoal)</div>
   </section>
   <section class="card">
     <h2>Últimos 7 dias</h2>
@@ -78,9 +174,10 @@
   </section>
 </main>
 
+<!-- ================= CONFIG ================= -->
 <main id="view-config" class="view hidden">
   <section class="card">
-    <h2>Cronograma de transição</h2>
+    <h2>Cronograma de transição — Bebê</h2>
     <p class="muted">Defina a data de início do dia 1 do cronograma de 10 dias. Os alvos diários são calculados automaticamente a partir dela.</p>
     <label for="start-date">Início do dia 1</label>
     <input type="date" id="start-date">
@@ -88,7 +185,7 @@
     <p id="settings-saved" class="muted hidden">Salvo ✓</p>
   </section>
   <section class="card">
-    <h2>Referência do cronograma</h2>
+    <h2>Referência do cronograma — Bebê</h2>
     <table class="ref-table">
       <thead><tr><th>Dias</th><th>Limite soneca tarde</th><th>Início rotina noturna</th><th>Meta de dormir</th></tr></thead>
       <tbody>
@@ -101,10 +198,18 @@
     </table>
     <p class="muted">Acordar de vez: sempre 08:00. A partir do dia 11, mantém-se o alvo dos dias 9–10.</p>
   </section>
+  <section class="card">
+    <h2>Referência — Rapha e casa</h2>
+    <p class="muted">Rapha (3 anos) tem alvo fixo, sem cronograma de transição: fim da soneca da tarde até 18:00, banho às 18:00, dormir por volta das 20:30.</p>
+    <p class="muted">Meta geral: todas as crianças na cama até as 21:00. Checklist da casa: ~2h40 no total (básico 40min + 8 itens de 15min).</p>
+  </section>
 </main>
 
 <nav class="tabbar">
-  <button class="tab active" data-view="hoje"><span>📅</span>Hoje</button>
+  <button class="tab active" data-view="geral"><span>🏠</span>Geral</button>
+  <button class="tab" data-view="bebe"><span>🍼</span>Bebê</button>
+  <button class="tab" data-view="rapha"><span>🧒</span>Rapha</button>
+  <button class="tab" data-view="casa"><span>🧹</span>Casa</button>
   <button class="tab" data-view="semana"><span>📊</span>Semana</button>
   <button class="tab" data-view="config"><span>⚙️</span>Config</button>
 </nav>
