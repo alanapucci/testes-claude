@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alanapucci.github.io/testes-claude/sitemap.xml
