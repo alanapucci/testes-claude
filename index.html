@@ -32,8 +32,8 @@
     {
       "@type": "Product",
       "position": 1,
-      "name": "Planilha Financeira Inteligente",
-      "description": "Planilha de controle financeiro pessoal, e-book de como usar IA para preencher a planilha, biblioteca de prompts de IA e guia de análise financeira.",
+      "name": "Planilha de Controle Financeiro Pessoal",
+      "description": "Planilha para registrar receitas, despesas, orçamento e parcelamentos, e acompanhar sua evolução financeira mês a mês.",
       "image": "https://alanapucci.github.io/testes-claude/assets/og-image.jpg",
       "brand": { "@type": "Brand", "name": "Alana Pucci — Solução Financeira" },
       "offers": {
@@ -71,6 +71,21 @@
         "url": "https://pay.kiwify.com.br/sbcJJkp",
         "priceCurrency": "BRL",
         "price": "98.00",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 4,
+      "name": "Pacote Completo — Planilha Financeira Inteligente",
+      "description": "Planilha de controle financeiro pessoal, e-book de como usar IA para preencher a planilha, biblioteca de prompts de IA e guia de análise financeira, tudo em um único pacote.",
+      "image": "https://alanapucci.github.io/testes-claude/assets/og-image.jpg",
+      "brand": { "@type": "Brand", "name": "Alana Pucci — Solução Financeira" },
+      "offers": {
+        "@type": "Offer",
+        "url": "LINK_KIWIFY_PACOTE_COMPLETO",
+        "priceCurrency": "BRL",
+        "price": "149.99",
         "availability": "https://schema.org/InStock"
       }
     }
@@ -396,25 +411,23 @@
     <div class="max-w-6xl mx-auto px-5 py-16 sm:py-24">
       <div class="text-center mb-12">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-ink mb-3">Escolha o formato ideal para você</h2>
-        <p class="text-ink/60 max-w-xl mx-auto">Leve o pacote completo com desconto ou escolha apenas o item avulso que faz sentido para o seu momento.</p>
+        <p class="text-ink/60 max-w-xl mx-auto">Compre apenas o item avulso que faz sentido para o seu momento, ou leve o pacote completo mais abaixo.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 items-stretch">
 
-        <!-- Pacote completo -->
-        <div class="price-highlight relative flex flex-col bg-cream rounded-2xl border-2 border-forest p-8 order-first md:order-none md:-translate-y-3">
-          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-forest text-cream text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full">Mais completo</span>
-          <h3 class="text-xl font-bold text-forest-800 mt-3 mb-1">Planilha Financeira Inteligente</h3>
-          <p class="text-sm text-ink/60 mb-5">Pacote completo com os 4 itens</p>
-          <p class="text-4xl font-extrabold text-forest mb-1">R$ 19,90</p>
+        <!-- Planilha avulsa -->
+        <div class="flex flex-col bg-cream rounded-2xl border border-sand p-8">
+          <h3 class="text-xl font-bold text-ink mt-3 mb-1">Planilha de Controle Financeiro Pessoal</h3>
+          <p class="text-sm text-ink/60 mb-5">Item avulso</p>
+          <p class="text-4xl font-extrabold text-ink mb-1">R$ 19,90</p>
           <p class="text-xs text-ink/50 mb-6">pagamento único</p>
           <ul class="text-sm text-ink/70 space-y-2 mb-8 flex-1">
-            <li class="flex gap-2"><span>📊</span> Planilha de Controle Financeiro Pessoal</li>
-            <li class="flex gap-2"><span>📕</span> E-book "Como Usar a IA para Preencher Sua Planilha"</li>
-            <li class="flex gap-2"><span>🤖</span> Biblioteca de Prompts para IA</li>
-            <li class="flex gap-2"><span>🔎</span> Guia de Análise Financeira</li>
+            <li class="flex gap-2"><span>📊</span> Registre receitas, despesas e orçamento</li>
+            <li class="flex gap-2"><span>✅</span> Controle de parcelamentos</li>
+            <li class="flex gap-2"><span>✅</span> Acompanhe sua evolução mês a mês</li>
           </ul>
-          <a href="https://pay.kiwify.com.br/aj6iA26?utm_source=site&utm_medium=landing_page&utm_campaign=planilha_financeira" class="text-center bg-forest hover:bg-forest-600 text-cream font-bold py-3.5 rounded-full transition">Quero a Planilha Completa</a>
+          <a href="https://pay.kiwify.com.br/aj6iA26?utm_source=site&utm_medium=landing_page&utm_campaign=planilha_financeira" class="text-center bg-forest hover:bg-forest-600 text-cream font-bold py-3.5 rounded-full transition">Quero a Planilha</a>
         </div>
 
         <!-- E-book avulso -->
@@ -445,6 +458,34 @@
           <a href="https://pay.kiwify.com.br/sbcJJkp?utm_source=site&utm_medium=landing_page&utm_campaign=diagnostico" class="text-center bg-ink hover:bg-ink/85 text-cream font-bold py-3.5 rounded-full transition">Quero meu Diagnóstico</a>
         </div>
 
+      </div>
+
+      <div class="flex items-center gap-4 my-12 max-w-md mx-auto">
+        <div class="h-px flex-1 bg-sand"></div>
+        <p class="text-xs uppercase tracking-wide text-ink/50 font-semibold whitespace-nowrap">ou leve tudo</p>
+        <div class="h-px flex-1 bg-sand"></div>
+      </div>
+
+      <!-- Pacote completo -->
+      <div class="price-highlight relative flex flex-col md:flex-row items-center gap-8 max-w-3xl mx-auto bg-cream rounded-2xl border-2 border-forest p-8 sm:p-10">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-forest text-cream text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full">Mais completo</span>
+        <div class="flex-1 text-center md:text-left">
+          <h3 class="text-2xl font-bold text-forest-800 mt-3 mb-1">Pacote Completo — Planilha Financeira Inteligente</h3>
+          <p class="text-sm text-ink/60 mb-5">Os 4 itens juntos, em um único pagamento</p>
+          <ul class="text-sm text-ink/70 space-y-2 text-left inline-block">
+            <li class="flex gap-2"><span>📊</span> Planilha de Controle Financeiro Pessoal</li>
+            <li class="flex gap-2"><span>📕</span> E-book "Como Usar a IA para Preencher Sua Planilha"</li>
+            <li class="flex gap-2"><span>🤖</span> Biblioteca de Prompts para IA</li>
+            <li class="flex gap-2"><span>🔎</span> Guia de Análise Financeira</li>
+          </ul>
+        </div>
+        <div class="flex flex-col items-center md:items-stretch gap-4 md:w-56">
+          <div class="text-center md:text-left">
+            <p class="text-4xl font-extrabold text-forest">R$ 149,99</p>
+            <p class="text-xs text-ink/50">pagamento único</p>
+          </div>
+          <a href="LINK_KIWIFY_PACOTE_COMPLETO?utm_source=site&utm_medium=landing_page&utm_campaign=pacote_completo" class="text-center bg-forest hover:bg-forest-600 text-cream font-bold py-3.5 px-6 rounded-full transition whitespace-nowrap">Quero o Pacote Completo</a>
+        </div>
       </div>
     </div>
   </section>
